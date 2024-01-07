@@ -73,6 +73,8 @@ func callbacks(update tgbotapi.Update) {
 
 func commands(update tgbotapi.Update) {
 	command := update.Message.Command()
+	firstName := update.Message.From.FirstName
+	lastName := update.Message.From.LastName
 
 	log.Printf("Commands: %s\n", command)
 
@@ -83,7 +85,14 @@ func commands(update tgbotapi.Update) {
 		msg.ParseMode = "Markdown"
 
 		sendMessage(msg)
+
+	case "ami":
+		message := fmt.Sprintf("You're %s %s", firstName, lastName)
+		msg := tgbotapi.NewMessage(update.Message.Chat.ID, message)
+
+		sendMessage(msg)
 	}
+
 }
 
 func sendMessage(msg tgbotapi.Chattable) {
