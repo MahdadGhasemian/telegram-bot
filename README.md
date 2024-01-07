@@ -4,21 +4,11 @@
 ```bash
 # Create .env file and fill the TG_API_BOT_TOKEN
 
-# Run the main application
-go run main.go
-```
-
-# How to create a new project
-```bash
-# Initialize the Go module for the Telegram bot
-go mod init telegrambot
-
-# Install the required packages
-go get -u github.com/go-telegram-bot-api/telegram-bot-api/v5
-go get github.com/joho/godotenv
+# Install modules
+npm i
 
 # Run the main application
-go run main.go
+node app.js
 ```
 
 # Register a new bot
